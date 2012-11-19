@@ -6,9 +6,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>com.reefcrm.customer</name>
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
-		 <finalName>reef-crm</finalName>
+		<finalName>reef-crm</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
