@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project default="usage" basedir=".">
+
+<property name="target.dir"  value="target"/>
+<property name="deploy.dir"  value="/Volumes/fer/apache-tomcat-7.0.32/webapps/"/>
+<property name="war.file"    value="reef-crm.war"/>
+
+<target name="usage">
+	<echo message=""/>
+	<echo message=" Targets:                                                 "/>
+	<echo message="                                                          "/>
+	<echo message="   package         reef-crm.war erzeugen ueber maven"/>
+	<echo message="   deploy          reef-crm.war deployen auf Tomcat-Server"/>
+</target>
+
+<target name="package">
+	<exec executable="mvn">
+		<arg value="package"/>
+	</exec>
+</target>
+
+<target name="deploy" depends="package">
+	<copy file="${target.dir}/${war.file}" tofile="${deploy.dir}/${war.file}" overwrite="yes" verbose="yes"/>
+</target>
+</project>

@@ -311,11 +311,13 @@ public class Customer {
 		return s;
 	}
 
+	
+	
 	private String getHtmlHead() 
 	{
 		String s="<html>";
 		s+="<title>";
-		s+="LIST of customers";
+		s+="list of customers";
 		s+="</title>";
 		s+="<body>";
 		s+="<h1 align='center'>list of customers</h1>";

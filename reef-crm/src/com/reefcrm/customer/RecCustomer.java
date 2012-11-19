@@ -2,6 +2,7 @@ package com.reefcrm.customer;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 @XmlRootElement
 public class RecCustomer 
 {
