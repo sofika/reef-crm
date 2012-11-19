@@ -315,7 +315,7 @@ public class Customer {
 	{
 		String s="<html>";
 		s+="<title>";
-		s+="LIST of customers";
+		s+="List of customers";
 		s+="</title>";
 		s+="<body>";
 		s+="<h1 align='center'>list of customers</h1>";
