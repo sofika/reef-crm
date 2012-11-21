@@ -1,0 +1,5 @@
+# -*- coding: robot -*-
+
+| *Variable* |     *Value*     |
+| ${STADT}  | Hamburg  |
+

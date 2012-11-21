@@ -1,0 +1,63 @@
+# -*- coding: robot -*-
+| *Variable* |     *Value*     |
+| ${MESSAGE} | Hello, world!   |
+| ${GOODBY}  | Aufwiedersehen  |
+# | ${HOST}  | 192.168.133.30  |
+| ${RESOURCE_DIR}  | .  |
+| ${HTTPHOST} | http://192.168.133.82:8080
+| ${RESTCALL} | ${HTTPHOST}/com.reefcrm.test.customer/customer
+
+| *Setting*     |     *Value*     |
+| Library       | OperatingSystem |
+| Library       | Screenshot |
+| Resource      | ${RESOURCE_DIR}/common.txt |
+# | Test Setup    | echo TestSetup |
+# | Test Teardown | NONE |
+
+| *Test Case*   | *Action*        | *Argument*   |
+| My Test       | [Documentation] | Example test |
+|               | Log             | ${MESSAGE}   |
+|               | My Keyword      | /tmp         |
+| Another Test  | Should Be Equal | ${MESSAGE}   | Hello, world!
+| Another Test2 | Should Be Equal | ${GOODBY}    | Aufwiedersehen
+| Another Test4 | Should Be Equal | ${HOST}    | fermacx
+|               | [Tags]          | Performance|
+| Another Test3 | Should Be Equal | ${STADT}    | Hamburg
+|               | [Documentation] | Das ist ein Test  mit Tags |
+|               | [Tags]          | Performance|
+|               | [Tags]          | Datenbank|
+| byId-01       | [Documentation] | RESTful-call customer/byId|
+|               | curl get html   | byId | 1
+|               | should match    | hallo Peter | *Pet*
+| system-examples | [Documentation] | ROBOT-System-example-calls
+|               | create directory | tmpdir1
+|               | create directory | tmpdir2
+|               | directory should exist | tmpdir1
+|               | directory should exist | tmpdir2
+|               | append to File  | tmpdir1/1.tmp | Dateiinhalt | encoding=UTF-8
+|               | copy file       | tmpdir1/1.tmp | tmpdir2/2.tmp
+|               | file should exist | tmpdir1/1.tmp
+|               | file should exist | tmpdir2/2.tmp
+|               | file should not be empty | tmpdir1/1.tmp
+|               | empty directory | tmpdir1
+|               | empty directory | tmpdir2
+|               | environment variable should be set | PATH
+|               | ${output}= | run | date
+|               | log | ${output}
+|               | run and return rc | ls
+|               | ${rc} | run and return rc | ls
+|               | should be equal as integers | ${rc} | 0
+|               | ${rc} | ${output}= | run and return rc and output | echo hallo
+|               | should be equal as integers | ${rc} | 0
+|               | should be equal | ${output} | hallo
+|               | should be true | ${rc} == 0
+|               | set environment variable | GREETING | HALLO
+|               | take screenshot | name=screenshot1 
+|               | set variable | XYZ | VALUE
+
+| *Keyword*     |
+| My Keyword    | [Arguments] | ${path}
+|               | Directory Should Exist | ${path}
+| curl get html | [Arguments] | ${action} | ${value} 
+|               | ${rc} | ${output}= | run and return rc and output | curl -X GET -H  "Content-Type: application/html" ${RESTCALL}/${action}/${value}
+|               | should be equal as integers | ${rc} | 0

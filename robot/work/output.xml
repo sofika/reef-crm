@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 2.7.5 (Jython 2.5.2 on java1.6.0_33)" generated="20121121 15:04:35.731">
+<suite source="/Users/fer/entwicklung/test-eclipse-restful/git-repository/gitrepository1/robot/work/robot-customer.txt" id="s1" name="Robot-Customer">
+<test id="s1-t1" timeout="" name="byId-01">
+<kw type="kw" timeout="" name="curl get html">
+<doc></doc>
+<arguments>
+<arg>byId</arg>
+<arg>1</arg>
+</arguments>
+<kw type="kw" timeout="" name="${rc}, ${output} = OperatingSystem.Run And Return Rc And Output">
+<doc>Runs the given command in the system and returns the RC and output.</doc>
+<arguments>
+<arg>curl -X GET -H "Content-Type: application/html" ${RESTCALL}/${action}/${value}</arg>
+</arguments>
+<msg timestamp="20121121 15:04:36.673" level="INFO">Running command 'curl -X GET -H "Content-Type: application/html" http://192.168.133.82:8080/com.reefcrm.test.customer/customer/byId/1 2&gt;&amp;1'</msg>
+<msg timestamp="20121121 15:04:36.685" level="INFO">${rc} = 0</msg>
+<msg timestamp="20121121 15:04:36.687" level="INFO">${output} =   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0   ...</msg>
+<status status="PASS" endtime="20121121 15:04:36.684" starttime="20121121 15:04:36.632"></status>
+</kw>
+<kw type="kw" timeout="" name="BuiltIn.Should Be Equal As Integers">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rc}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20121121 15:04:36.695" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20121121 15:04:36.697" starttime="20121121 15:04:36.691"></status>
+</kw>
+<status status="PASS" endtime="20121121 15:04:36.698" starttime="20121121 15:04:36.621"></status>
+</kw>
+<kw type="kw" timeout="" name="BuiltIn.Should Match">
+<doc>Fails unless the given `string` matches the given `pattern`.</doc>
+<arguments>
+<arg>hallo Peter</arg>
+<arg>*Pet*</arg>
+</arguments>
+<status status="PASS" endtime="20121121 15:04:36.708" starttime="20121121 15:04:36.701"></status>
+</kw>
+<doc>RESTful-call customer/byId|</doc>
+<tags>
+</tags>
+<status status="PASS" critical="yes" endtime="20121121 15:04:36.710" starttime="20121121 15:04:36.613"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20121121 15:04:36.714" starttime="20121121 15:04:35.733"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" id="s1" fail="0" name="Robot-Customer">Robot-Customer</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

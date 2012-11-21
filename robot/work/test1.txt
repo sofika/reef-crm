@@ -1,0 +1,30 @@
+# -*- coding: robot -*-
+| *Variable* |     *Value*     |
+| ${MESSAGE} | Hello, world!   |
+| ${GOODBY}  | Aufwiedersehen  |
+# | ${HOST}  | 192.168.133.30  |
+| ${RESOURCE_DIR}  | .  |
+
+
+| *Setting*     |     *Value*     |
+| Library       | OperatingSystem |
+| Resource      | ${RESOURCE_DIR}/common.txt |
+# | Test Setup    | echo TestSetup |
+# | Test Teardown | NONE |
+
+| *Test Case*   | *Action*        | *Argument*   |
+| My Test       | [Documentation] | Example test |
+|               | Log             | ${MESSAGE}   |
+|               | My Keyword      | /tmp         |
+| Another Test  | Should Be Equal | ${MESSAGE}   | Hello, world!
+| Another Test2 | Should Be Equal | ${GOODBY}    | Aufwiedersehen
+| Another Test4 | Should Be Equal | ${HOST}    | fermacx
+|               | [Tags]          | Performance|
+| Another Test3 | Should Be Equal | ${STADT}    | Hamburg
+|               | [Documentation] | Das ist ein Test  mit Tags |
+|               | [Tags]          | Performance|
+|               | [Tags]          | Datenbank|
+
+| *Keyword*  |
+| My Keyword | [Arguments] | ${path}
+|            | Directory Should Exist | ${path}
