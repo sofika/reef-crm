@@ -5,15 +5,25 @@ import java.util.Vector;
 
 public class DbAccess 
 {
+	/*
+	 * postgres
+	 */
+	/*
 	String driver ="org.postgresql.Driver";
 	String url = "jdbc:postgresql:fer"; 
 
 	String user = "fer"; 
 	String pwd = "fresenius65" ;
-
+*/
+	String driver ="com.mysql.jdbc.Driver";
+	  String user = "root";
+      String pwd = "defreef1" ;
+      String url = "jdbc:mysql://localhost/reefcustomerdb?user="+user+"&password="+pwd ;
+	
 	static private String selectAllCustomerFields = "SELECT id, name, surname " + "FROM customer ";
 	public DbAccess()
 	{
+		/*
 		try {
 			Class.forName(driver); 
 		}
@@ -21,11 +31,19 @@ public class DbAccess
 
 			System.err.println("Can't load driver "+ e.getMessage());
 		}
+*/
+		try {
+			Class.forName(driver); 
+		}
+		catch (ClassNotFoundException e) {
 
+			System.err.println("Can't load driver "+ e.getMessage());
+		}
 	}
 	public Connection connect() throws SQLException
 	{
-		Connection con = DriverManager.getConnection(url, user,pwd);
+		// Connection con = DriverManager.getConnection(url, user,pwd);
+		Connection con = DriverManager.getConnection(url);
 		return con;
 	}
 	public RecCustomer[] getFirstCustomer(Connection con,int count) throws SQLException
